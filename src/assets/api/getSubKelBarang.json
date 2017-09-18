@@ -1,0 +1,40 @@
+{
+    "status":200,
+    "message":"Success",
+    "data":[
+        {
+            "idKelompok":1,
+            "subKelompok":[
+                {
+                    "idSub":1,
+                    "namaSub":"Alat Studio"
+                },
+                {
+                    "idSub":2,
+                    "namaSub":"Komunikasi"
+                },
+                {
+                    "idSub":3,
+                    "namaSub":"Pemancar"
+                },
+                {
+                    "idSub":4,
+                    "namaSub":"Komputer"
+                }
+            ]
+        },
+        {
+            "idKelompok":2,
+            "subKelompok":[
+                {
+                    "idSub":1,
+                    "namaSub":"blah"
+                },
+                {
+                    "idSub":2,
+                    "namaSub":"blah"
+                }
+            ]
+        }
+    ]
+}

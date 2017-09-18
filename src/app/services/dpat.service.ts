@@ -1,0 +1,118 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { MyRequestOptions } from './my-request-options';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import { CanActivate } from '@angular/router';
+import 'rxjs/add/operator/toPromise';
+
+@Injectable()
+    export class DpatService implements CanActivate{
+        // serverDomain="http://localhost:4200/assets/api/";
+        offset:number;
+        local=[
+            'http://localhost:4200/assets/api/getDpatList.json',
+            'http://localhost:4200/assets/api/getDpatById.json',
+            'http://localhost:4200/assets/api/getKelBarang.json',
+            'http://localhost:4200/assets/api/getSubKelBarang.json'
+        ];
+        api=[
+            'http://localhost:49162/api/dpat/',
+            'http://localhost:49162/api/dpat/getDpatById',
+            'http://localhost:49162/api/dpat/getdpatno/',
+            'http://localhost:49162/api/masterkelompok/',
+            'http://localhost:49162/api/mastersubkelompok/getsubkelompokbykelompokid/',
+            'http://localhost:49162/api/masterjenis/getJenisbysubkelompokid',
+        ]
+         constructor(
+             private http:Http
+         ){
+             
+             console.log(':: Dpat Service is Runnin ::')
+             this.offset=0;
+
+         }
+        
+        getDpatList(){
+            return this.http.get(this.api[0]).map(resp=>resp.json());
+        }
+        getDpatById(dpatId:number){
+            const reqOpt = new MyRequestOptions({
+                'dpatId':dpatId,
+            })
+            return this.http.get(this.api[1], reqOpt).map(resp=> resp.json());
+        }
+        getBapbList(){ 
+            let bapbList = [
+              { id: 1, text: "12345" },
+              { id: 2, text: "67890" },
+              { id: 3, text: "45678" }
+            ];
+            return bapbList;
+          }
+        getMasterKelompok(){
+            return this.http.get(this.api[3]).map(resp=>resp.json());
+        }
+        getMasterSubKelompok(masterKelompokId: number){
+            const reqOpt = new MyRequestOptions({
+                'kelompokId':masterKelompokId,
+            })
+            return this.http.get(this.api[4],reqOpt).map(resp=>resp.json());
+        }
+        getJenisBarang(subKelompokId:number){
+            const reqOpt = new MyRequestOptions({
+                'subKelompokId':subKelompokId,
+            })
+            return this.http.get(this.api[5],reqOpt).map(resp=>resp.json());
+        }
+        canActivate() {
+            console.log('dpatServices canActivated loaded');
+            this.offset = 0;
+            return true;
+        }
+    }
+    export class Dpat{
+        dpatId;
+        noDpat;
+        noBapb;
+        supplier;
+        tanggalDpat;
+        userIdLogistik;
+        namaLogistik;
+        nikLogistik;
+        userIdKaLogistik;
+        nikKaLogistik;
+        namaKaLogistik;
+        apprKaLogistik;
+        dpatStatusId;
+        tanggalPerolehan;
+        mataAnggaran;
+        dpatDetail; 
+
+    }
+    export class DpatDetail{
+        dpatDetailId;
+        dpatId;
+        namaMerk;
+        namaTipe;
+        namaAktivaTetap;
+        noSeri;
+        mataAnggaran;
+        noInventaris;
+        jumlah;
+        satuan;
+        nilaiPerolehan;
+        mataUangBeli;
+        keterangan;
+        lokasiKantor;
+        namaLokasi;
+        masterKelompokId;
+        namaMasterKelompok;
+        masterSubKelompokId;
+        namaMasterSubKelompok;
+        masterJenisId;
+        namaMasterJenis;
+        tahunBeli;
+    }

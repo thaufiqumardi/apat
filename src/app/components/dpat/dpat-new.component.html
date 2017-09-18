@@ -1,0 +1,76 @@
+<section class="content-header">
+    <h1>
+        Daftar Penambahan Aktiva Tetap
+        <small>{{subTitle}}</small>
+    </h1>
+    <div class="header-btn">
+        <button class="btn btn-sm btn-default" (click)="onBtnBatalClick()">
+            <span class="fa fa-close"></span> Batal
+        </button>
+        <button type="button" class="btn btn-sm btn-primary" >
+             <span class="fa fa-send"></span> Kirim
+        </button>
+    </div>
+</section>
+<section class="content">
+    <form class="form-horizontal">
+        <div class="box box-primary">
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">No. DPAT</label>
+                            <div class="col-md-9">
+                                <input type="text" name="noDpat" class="form-control"/> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">No. BAPB/J</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="bapb" required/>
+                                    <span class="input-group-btn"><button class="btn btn-primary"><i class="fa fa-search"></i></button></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Tgl. Perolehan</label>
+                            <div class="col-sm-9">
+                                <my-date-picker name="rencanaKembali" required></my-date-picker>
+                                <!-- <input type="text" class="form-control" name="tglperolehan"/> -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Supplier</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="supplier"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Mata Anggaran</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="tglperolehan"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nama Barang</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Lorem ipsum dolor sit amet a-184 X847</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum dolor sit amet a-184 X847</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>

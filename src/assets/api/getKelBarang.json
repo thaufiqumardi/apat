@@ -1,0 +1,56 @@
+{
+    "status":200,
+    "message":"Success",
+    "data":[
+        {
+            "idKelompok":1,
+            "namaKelompok":"Alat Media & Komunikasi",
+            "subKelompok":[
+                {
+                    "idSub":1,
+                    "namaSub":"Alat Studio"
+                },
+                {
+                    "idSub":2,
+                    "namaSub":"Komunikasi"
+                },
+                {
+                    "idSub":3,
+                    "namaSub":"Pemancar"
+                },
+                {
+                    "idSub":4,
+                    "namaSub":"Komputer"
+                }
+            ]
+        },
+        {
+            "idKelompok":2,
+            "namaKelompok":"Alat Produksi"
+        },
+        {
+            "idKelompok":3,
+            "namaKelompok":"Alat Kantor & Rumah Tangga"
+        },
+        {
+            "idKelompok":4,
+            "namaKelompok":"Alat Laboratorium"
+        },
+        {
+            "idKelompok":5,
+            "namaKelompok":"Alat Angkut / Kendaraan"
+        },
+        {
+            "idKelompok":6,
+            "namaKelompok":"Peralatan Kesehatan"
+        },
+        {
+            "idKelompok":7,
+            "namaKelompok":"Tanah"
+        },
+        {
+            "idKelompok":8,
+            "namaKelompok":"Gedung & Bangunan"
+        }
+    ]
+}

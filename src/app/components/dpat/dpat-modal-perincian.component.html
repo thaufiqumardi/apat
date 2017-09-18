@@ -1,0 +1,123 @@
+<div class="modal fade modalPerincian" role="dialog" aria-labelledby="LargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Lengkapi Data Barang</h4>
+            </div>
+            <div class="modal-body">
+              <form class="form">
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="control-label">Kelompok Barang</label>
+                              <select name="kelompok" class="form-control" name="kelompokBarang" required ([ngModel])="masterKelompok" (change)="onKelBarangChange($event.target.value)">
+                                  <option selected disabled>Pilih Kelompok Barang:</option>
+                                  <option *ngFor="let kel of masterKelompok; let i = index" value="{{kel.masterKelompokId}}" >
+                                    {{kel.masterKelompokId}}  
+                                    {{kel.namaMasterKelompok}}
+                                  </option>
+                              </select>
+                        </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Nama Barang</label>
+                      <input type="text" name="namaBarang" class="form-control" required [ngModel]="DpatDetail.namaAktivaTetap"/>
+                      <!-- <textarea name="namaBarang" class="form-control" required >{{DpatDetail.namaAktivaTetap}}</textarea> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="control-label">Sub Kelompok</label>         
+                          <select name="subKelompok" class="form-control" required ([ngModel])="masterSubKelompok" (change)="onSubKelompok($event.target.value)">
+                            <option selected disabled>
+                              Pilih Sub Kelompok: 
+                            </option>
+                            <option *ngFor="let sub of masterSubKelompok; let i=index" value="{{sub.masterSubKelompokId}}">
+                              {{sub.namaMasterSubKelompok}}
+                            </option>>
+                        </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="control-label">Merk</label>
+                          <input type="text" name="merk" class="form-control" required [ngModel]="DpatDetail.namaMerk"/>
+                        </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Jenis</label>
+                            <select name="unitKerjaPenerima" class="form-control select2" required ([ngModel])="DpatDetail.namaMasterJenis">
+                              <option selected disabled>
+                                Pilih Jenis Barang:
+                              </option>
+                              <option *ngFor="let jenis of jenisBarang; let i=index" value="{{jenis.masterJenisId}}">
+                                {{jenis.namaMasterJenis}}
+                              </option>
+                            </select>
+                          </div>  
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="control-label">Tipe</label>
+                        <input type="text" name="tipe" [(ngModel)]="tipe" required class="form-control" [ngModel]="DpatDetail.namaTipe"/>
+                      </div>
+                    </div>
+                  </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="control-label">No Seri</label>
+                    <input type="text" name="noSeri" required class="form-control" [ngModel]="DpatDetail.noSeri"/>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="control-label">Mata Anggaran</label>
+                    <input type="text" name="mataAnggaran" [ngModel]="mataAnggaran" required class="form-control"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <label class="control-label">Jumlah</label>
+                      <input type="text" name="jumlah" class="form-control" [ngModel]="DpatDetail.jumlah" required/>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="control-label">Satuan</label>
+                    <input type="text" name="satuan" class="form-control" [ngModel]="DpatDetail.satuan" required/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="control-label">Harga Beli</label>
+                    <input type="text" name="hargaBeli" class="form-control" [ngModel]="DpatDetail.nilaiPerolehan" required/>
+                  </div>
+                  <div class="col-md-6">
+                      <label class="control-label">Tanggal Beli</label>
+                      <my-date-picker name="rencanaKembali" required></my-date-picker>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="control-label">Keterangan</label>
+                    <input type="text" name="keterangan" class="form-control" [ngModel]="DpatDetail.keterangan"/>
+                    <!-- <textarea rows="4" name="keterangan" class="form-control" [(ngModel)]="Keterangan" required></textarea> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">
+                  <span class="fa fa-close"></span> Batal
+                </button>
+                <button class="btn btn-sm btn-primary">
+                  <span class="fa fa-save"></span> Simpan
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>

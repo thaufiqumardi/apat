@@ -1,0 +1,133 @@
+<section class="content-header">
+  <h1>Daftar Penambahan Aktiva Tetap
+      <small>Detail</small>
+  </h1>
+  <div class="header-btn">
+      <button class="btn btn-sm btn-default" routerLink="../">
+        <span class="fa fa-arrow-left"></span> Kembali
+      </button>
+      <button class="btn btn-sm btn-default" (click)="onBtnCetakClick()">
+        <span class="fa fa-print"></span> Cetak
+      </button>
+      <!-- <button class="btn btn-sm btn-warning" routerLink="./edit">
+        <span class="fa fa-edit"></span> Penomoran
+      </button> -->
+      <button class="btn btn-sm btn-success" routerLink="../">
+          Blah <span class="fa fa-arrow-right"></span>
+      </button>
+      <!-- <button class="btn btn-sm btn-primary" routerLink="./pengembalian">
+        <span class="fa fa-download"></span> Pengembalian
+      </button> -->
+    </div>
+</section>
+
+<section class="content">
+  <div class="box box-primary">
+      <!-- <div class="box-header">
+          <img class="document-logo" src="assets/images/headerDokumen.png"/>
+          PT. Len Industri (Persero)
+          <div class="document-code">VFR-011</div>
+      </div> -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-4"> 
+            <tr>
+              <td>
+                <dl class="dl-horizontal">
+                <dt>No. DPAT:</dt>
+                <dd>{{dpat.noDpat}}</dd>
+                <dt>No. BAPB/J:</dt>
+                <dd>{{dpat.bapb}}</dd>
+                <dt>Tanggal Perolehan:</dt>
+                <dd>{{dpat.tanggalDpat}}</dd>
+                <dt>Supplier:</dt>
+                <dd>{{dpat.Supplier}}</dd>
+                <!-- <dt>Mata Anggaran:</dt> -->
+                <!-- <dd>{{dpat.MataAnggaran}}</dd> -->
+                </dl>
+              </td>
+            </tr>   
+          </div>
+          <div class="col-md-8">
+              <table class="table table-bordered table-responsive table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="no">No</th>
+                        <th>Nama Barang</th>
+                        <th>Merk</th>
+                        <th>Tipe</th>
+                        <th>No Seri</th>
+                        <th>No Inventaris</th>
+                        <th>Jumlah</th>
+                        <th>Harga Beli</th>
+                        <th>Keterangan</th>
+                        <th style="width: 60px;"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let row of dpat?.dpatDetail; let i =index">
+                      <td>{{i+1}}</td>
+                      <td>{{row.namaAktivaTetap}}</td>
+                      <td>{{row.merk}}</td>
+                      <td>{{row.tipe}}</td>
+                      <td>{{row.noSeri}}</td>
+                      <td>{{row.noInventaris}}</td>
+                      <td>{{row.jumlah}}</td>
+                      <td>{{row.HargaBeli}}</td>
+                      <td>{{row.keterangan}}</td>
+                      <td><button class="btn btn-xs btn-success" data-toggle="modal" data-target=".modalPerincian" (click)="onPerincian(i)">Perincian</button>
+                      </td>
+                    </tr>
+                </table>
+            </div>           
+        </div>   
+          <!-- <table class="table">
+            <tr>
+                <td class="text-center">
+                  <br/>
+                    <h5 class="text-bold">
+                      Mengetahui,
+                    </h5>
+                    <span>Ka. Unit General Affairs</span>
+                    <br/><br/><br/><br/><br/>
+                    <u>Nama Lengkap</u><br/>
+                    NIK.1234567990
+                </td>
+                
+                
+                    <td class="text-center">
+                      <p>Bandung {{dpat.tanggalDpat}}</p>
+                      <h5 class="text-bold">
+                        Dibuat Oleh,
+                      </h5>
+                      <span>Ka. Unit Logistik</span>
+                      <br/><br/><br/><br/><br/>
+                      <u>Nama Lengkap</u><br/>
+                      NIK.1234567990
+                    </td>
+            </tr>
+          </table> -->
+      </div>
+  </div>
+  <div class="box box-primary">
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-stripped table-bordered">
+        <thead>
+          <tr>
+              <th class="no">No</th>
+              <th>Nama Barang</th>
+              <th>Merk</th>
+              <th>Tipe</th>
+              <th>No Seri</th>
+              <th>No Inventaris</th>
+              <th>Jumlah</th>
+              <th>Harga Beli</th>
+              <th>Keterangan</th>              
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</section>
+<modal-perincian [DpatDetail]="selectedDpatDetail"></modal-perincian>   
+            
